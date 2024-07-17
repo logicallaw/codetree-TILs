@@ -19,6 +19,9 @@ int main() {
             duplicated++;
         }
     }
+    if(duplicated != 1) {
+        max = (max < duplicated) ? duplicated : max;
+    }
     cout << max << endl;
     delete[] arr;
     return 0;
