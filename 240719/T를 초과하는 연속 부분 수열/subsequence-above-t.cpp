@@ -3,8 +3,8 @@ using namespace std;
 
 int main() {
     // 여기에 코드를 작성해주세요.
-    int n;
-    cin >> n;
+    int n,t;
+    cin >> n >> t;
     int* array = new int[n];
     for(int i{ 0 }; i < n; i++) {
         cin >> array[i];
@@ -13,10 +13,10 @@ int main() {
     int count = 0;
     for(int i{ 0 }; i < n; i++) {
         if(i == 0){
-            if(array[0] > 3) {
+            if(array[0] > t) {
                 count = 1;
             }
-        } else if (array[i] <= 3) {
+        } else if (array[i] <= t) {
             max = (max < count) ? count : max;
             count = 0;
         } else {
