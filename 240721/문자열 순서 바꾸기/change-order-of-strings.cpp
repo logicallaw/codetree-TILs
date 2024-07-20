@@ -6,7 +6,8 @@ int main() {
     char s[101];
     char t[101];
     cin >> s;
+    cin.ignore();
     cin >> t;
-    cout << t << " " << s;
+    cout << t << endl << s;
     return 0;
 }
