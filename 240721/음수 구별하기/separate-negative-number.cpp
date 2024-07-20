@@ -7,6 +7,5 @@ int main() {
     cin >> n;
     cout << n << endl;
     if(n < 0) cout << "minus";
-    else cout << n;
     return 0;
 }
