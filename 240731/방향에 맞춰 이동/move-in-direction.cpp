@@ -12,15 +12,18 @@ int main() {
         char c;
         int d;
         cin >> c >> d;
+        int dir;
         if(c == 'E') {
-            x += dx[0] * d;
+            dir = 0;
         } else if (c == 'S') {
-            y += dy[1] * d;
+            dir = 1;
         } else if (c == 'W') {
-            x += dx[2] * d;
+            dir = 2;
         } else {
-            y += dy[3] * d;
+            dir = 3;
         }
+        x += dx[dir] * d;
+        y += dy[dir] * d;
     }
     cout << x << " " << y;
     return 0; 
