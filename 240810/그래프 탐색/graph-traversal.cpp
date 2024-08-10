@@ -5,17 +5,12 @@ using namespace std;
 vector<int> edges[1001] {};
 bool visited[1001] {};
 
-int result = 0;
-
-void dfs(int vertex, int cnt) {
+void dfs(int vertex) {
     visited[vertex] = true;
     for(const int child : edges[vertex]) {
         if(!visited[child]) {
-            dfs(child, cnt + 1);
+            dfs(child);
         }
-    }
-    if (result < cnt) {
-        result = cnt;
     }
 }
 
@@ -29,7 +24,13 @@ int main() {
         edges[x].push_back(y);
         edges[y].push_back(x);
     }
-    dfs(1, 0);
-    cout << result;
+    dfs(1);
+    int cnt = 0;
+    for(const int child : edges[1]) {
+        if (visited[child]) {
+            cnt++;
+        }
+    }
+    cout << cnt;
     return 0;
 }
