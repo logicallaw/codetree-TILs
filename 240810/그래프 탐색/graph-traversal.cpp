@@ -28,6 +28,7 @@ int main() {
     int cnt = 0;
     for(const int child : edges[1]) {
         if (visited[child]) {
+            visited[child] = false;
             cnt++;
         }
     }
