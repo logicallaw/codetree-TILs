@@ -25,7 +25,7 @@ int main() {
 
     for(map<int, vector<long long>, greater<int>>::iterator it = m.begin(); it != m.end(); it++) {
         sort(it->second.begin(), it->second.end(), greater<>());
-        for(int ele : it->second) {
+        for(long long ele : it->second) {
             cout << ele << " ";
         }
     }
