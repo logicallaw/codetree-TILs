@@ -10,7 +10,7 @@ int main(void) {
         checked[x1]++;
         checked[x2]--;
     }
-    int sum_val = 0;
+    long long sum_val = 0;
     int max = 1;
     for(long long ele : checked) {
         sum_val += ele;
