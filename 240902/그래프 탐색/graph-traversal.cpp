@@ -8,16 +8,14 @@ bool visited[1001] {};
 
 int result = 0;
 
-void dfs(int vertex, int cnt) {
+void dfs(int vertex) {
     for(int i{ 0 }; i < graph[vertex].size(); i++) {
         int curr_v = graph[vertex][i];
         if(!visited[curr_v]) {
             visited[curr_v] = true;
-            dfs(curr_v, cnt + 1);
+            result++;
+            dfs(curr_v);
         }
-    }
-    if(result < cnt) {
-        result = cnt;
     }
 }
 
@@ -33,7 +31,7 @@ int main(void) {
 
     int root_v = 1;
     visited[root_v] = true;
-    dfs(root_v, 0);
+    dfs(root_v);
     cout << result;
     return 0;
 }
