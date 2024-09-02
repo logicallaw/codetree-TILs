@@ -10,15 +10,9 @@ bool isRange(int& i, int& j) {
     return i >= 0 && i < n && j >= 0 && j < m;
 }
 
-bool isPass = false;
-
 void dfs(int x, int y) {
     int dx[2] = {1, 0};
     int dy[2] = {0, 1};
-
-    if(x == (n-1) && y == (m-1)) {
-        isPass = true;
-    }
 
     visited[x][y] = true;
     for(int i{ 0 }; i < 2; i++) {
@@ -39,12 +33,10 @@ int main(void) {
     }
 
     dfs(0, 0);
-
-    if(isPass) {
+    if(visited[n-1][m-1]) {
         cout << 1;
     } else {
         cout << 0;
     }
-
     return 0;
 }
