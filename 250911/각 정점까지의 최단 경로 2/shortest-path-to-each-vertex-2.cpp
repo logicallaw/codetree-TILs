@@ -43,7 +43,7 @@ int main() {
     for (int i = 1; i <=n; i++) {
         for (int j = 1; j <=n; j++) {
             if (d[i][j] == UNSEEN) {
-                cout << 0 << " ";
+                cout << -1 << " ";
                 continue;
             }
             cout << d[i][j] << " ";
