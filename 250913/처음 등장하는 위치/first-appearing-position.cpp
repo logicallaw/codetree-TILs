@@ -18,7 +18,8 @@ int main() {
         cin >> x;
 
         if (m.find(x) == m.end()) {
-            m.insert({x, ++cnt});
+            cnt++;
+            m.insert({x, cnt});
         }
     }
 
