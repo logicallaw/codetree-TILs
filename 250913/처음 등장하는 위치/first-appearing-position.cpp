@@ -1,20 +1,20 @@
-#include <bits/stdc++.h>
-#define int long long
+#include <iostream>
+#include <map>
 
 using namespace std;
 
-signed main() {
+int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
 
-    int N;
+    long long N;
     cin >> N;
 
-    map<int, int> m;
-    int cnt = 0;
+    map<long long, long long> m;
+    long long cnt = 0;
     while (N--) {
-        int x;
+        long long x;
         cin >> x;
 
         if (m.find(x) == m.end()) {
@@ -22,7 +22,7 @@ signed main() {
         }
     }
 
-    map<int, int>::iterator it;
+    map<long long, long long>::iterator it;
     for (it = m.begin(); it != m.end(); it++) {
         cout << it->first << " " << it->second << "\n";
     }
