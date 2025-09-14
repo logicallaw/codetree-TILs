@@ -25,5 +25,8 @@ signed main() {
         result = min(result, j - i + 2);
         s -= arr[i];
     }
+    if (result == 1e9+10) {
+        result = -1;
+    }
     cout << result;
 }
