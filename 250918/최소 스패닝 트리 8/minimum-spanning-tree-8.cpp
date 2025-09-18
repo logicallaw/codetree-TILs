@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <climits>
 #define int long long
 
 using namespace std;
 
 int V, E;
-const int UNSEEN = 1e15;
+const int UNSEEN = LONG_MAX;
 
 vector<pair<int, int>> v[10001];
 
