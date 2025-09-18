@@ -9,7 +9,7 @@ using namespace std;
 int V, E;
 const int UNSEEN = LONG_MAX;
 
-vector<pair<int, int>> v[10001];
+vector<pair<int, int>> adj[10001];
 
 
 signed main() {
@@ -19,24 +19,27 @@ signed main() {
 
     cin >> V >> E;
 
-    while (E--) {
-        int A, B, C;
-        cin >> A >> B >> C;
-        v[A].push_back({C, B});
-        v[B].push_back({C, A});
-    }
-
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    int d[V+1];
+    int w[V+1];
     bool visited[V+1];
 
     for (int i = 1; i <= V; i++) {
-        d[i] = UNSEEN;
+        w[i] = UNSEEN;
         visited[i] = false;
     }
-    d[1] = 0;
-    for (pair fringe : v[1]) {
-        d[fringe.second] = fringe.first;
+
+    while (E--) {
+        int A, B, C;
+        cin >> A >> B >> C;
+        adj[A].push_back({C, B});
+        adj[B].push_back({C, A});
+    }
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+
+    w[1] = 0;
+    visited[1] = true;
+    for (pair fringe : adj[1]) {
+        w[fringe.second] = fringe.first;
         pq.push(fringe);
     }
 
@@ -44,23 +47,23 @@ signed main() {
         pair<int, int> tree_vertex = pq.top();
         pq.pop();
 
-        if (d[tree_vertex.second] != tree_vertex.first) {
+        if (w[tree_vertex.second] != tree_vertex.first) {
             continue;
         }
+        visited[tree_vertex.second] = true;
 
-        for (pair fringe: v[tree_vertex.second]) {
+        for (pair fringe: adj[tree_vertex.second]) {
             if (visited[fringe.second] == true) {
                 continue;
             }
-            d[fringe.second] = min(d[fringe.second], fringe.first);
-            visited[fringe.second] = true;
-            pq.push({d[fringe.second], fringe.second});
+            w[fringe.second] = min(w[fringe.second], fringe.first);
+            pq.push({w[fringe.second], fringe.second});
         }
     }
 
     int total = 0;
     for (int i = 1; i <= V; i++) {
-        total += d[i];
+        total += w[i];
     }
     cout << total;
 }
