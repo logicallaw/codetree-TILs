@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#define int long long
 
 using namespace std;
 
