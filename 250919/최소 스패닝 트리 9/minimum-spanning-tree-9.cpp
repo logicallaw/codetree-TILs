@@ -11,7 +11,7 @@ const int UNSEEN = 0x7ffffff;
 vector<pair<int, int>> v[10001];
 
 
-int main() {
+signed main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
